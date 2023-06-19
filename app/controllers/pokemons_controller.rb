@@ -1,11 +1,33 @@
 class PokemonsController < ApplicationController
   def index
-    @pokemons = Pokemon.all
+    pokemons = Pokemon.all
+    render json: pokemons, status: 200
   end
 
   def show
-    @pokemon = pokemon_finder
-    @user = @pokemon.user
+    pokemon = pokemon_finder
+    user = pokemon.user
+    render json: pokemon, status: 200
+  end
+
+  def checkout
+    pokemon = pokemon_finder
+    user = pokemon.user
+    price = pokemon.price
+    balance = current_user.balance
+    render json: { pokemon: pokemon, vendeur: user, prix: price, balance: balance }, status: 200
+  end
+
+  def buy
+    pokemon = pokemon_finder
+    vendeur = pokemon_finder.user
+    if current_user.balance >= pokemon.price && current_user != vendeur
+      Transaction.create(pokemon: pokemon, user: current_user, action: 0)
+      Transaction.create(pokemon: pokemon, user: vendeur, action: 1)
+      render json: pokemon, status: 200
+    else
+      render json: {message: "no"}, status: 500
+    end
   end
 
   private
