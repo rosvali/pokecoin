@@ -1,0 +1,17 @@
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/debug-1.8.0/ext/debug
+/Users/rosvali/.rvm/rubies/ruby-3.0.5/bin/ruby -I /Users/rosvali/.rvm/rubies/ruby-3.0.5/lib/ruby/3.0.0 -r ./siteconf20230619-17050-i9cjcc.rb extconf.rb
+creating Makefile
+
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= clean
+
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\=
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 debug.bundle ./.gem.20230619-17050-xh22lj/debug

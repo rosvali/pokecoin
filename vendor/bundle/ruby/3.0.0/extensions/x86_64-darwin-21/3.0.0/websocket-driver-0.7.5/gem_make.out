@@ -1,0 +1,16 @@
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+/Users/rosvali/.rvm/rubies/ruby-3.0.5/bin/ruby -I /Users/rosvali/.rvm/rubies/ruby-3.0.5/lib/ruby/3.0.0 -r ./siteconf20230619-17050-tfxqs5.rb extconf.rb
+creating Makefile
+
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= clean
+
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\=
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 websocket_mask.bundle ./.gem.20230619-17050-q1dndm

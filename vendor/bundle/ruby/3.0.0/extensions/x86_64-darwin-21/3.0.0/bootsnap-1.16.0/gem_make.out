@@ -1,0 +1,16 @@
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.16.0/ext/bootsnap
+/Users/rosvali/.rvm/rubies/ruby-3.0.5/bin/ruby -I /Users/rosvali/.rvm/rubies/ruby-3.0.5/lib/ruby/3.0.0 -r ./siteconf20230619-17050-zypns5.rb extconf.rb
+creating Makefile
+
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20230619-17050-go79pk/bootsnap

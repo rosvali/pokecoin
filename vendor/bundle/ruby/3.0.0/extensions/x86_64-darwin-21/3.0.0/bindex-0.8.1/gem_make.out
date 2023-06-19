@@ -1,0 +1,16 @@
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/rosvali/.rvm/rubies/ruby-3.0.5/bin/ruby -I /Users/rosvali/.rvm/rubies/ruby-3.0.5/lib/ruby/3.0.0 -r ./siteconf20230619-17050-cm8dv5.rb extconf.rb
+creating Makefile
+
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= clean
+
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\=
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/rosvali/Projects/pokecoin/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20230619-17050-q3dhb7/skiptrace/internal
