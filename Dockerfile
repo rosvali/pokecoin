@@ -9,7 +9,3 @@ COPY Gemfile* .
 RUN gem install bundler:2.4.14
 
 RUN bundle install
-
-COPY . .
-
-EXPOSE 3000
