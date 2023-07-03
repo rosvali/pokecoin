@@ -5,9 +5,8 @@ class PokemonsController < ApplicationController
   end
 
   def show
-    pokemon = pokemon_finder
-    user = pokemon.user
-    render json: pokemon, status: 200
+    @pokemon = pokemon_finder
+    @user = @pokemon.user
   end
 
   def checkout
