@@ -1,1 +1,6 @@
 <%= image_tag @pokemon.image %>
+<%= @pokemon.name %>
+<p>Poids: <%= @pokemon.weigth %></p>
+<p>Heigth:<%= @pokemon.height %></p>
+<p>Price: <%= @pokemon.price %></p>
+<%= link_to "Voir le proprietaire", user_path(@pokemon.user.id) %>
