@@ -10,8 +10,8 @@ Transaction.destroy_all
 User.destroy_all
 Pokemon.destroy_all
 
-user1 = User.create(email: "Toto@mail.com", password: "password", balance: 100)
-user2 = User.create(email: "Rosa@mail.com", password: "password", balance: 30)
+user1 = User.create(name: "Toto", email: "Toto@mail.com", password: "password", balance: 100)
+user2 = User.create(name: "Rosa", email: "Rosa@mail.com", password: "password", balance: 30)
 
 bulbizarre = Pokemon.create(name: "Bulbizarre", weigth: 7, height: 1, price: 10, user: user1)
 salameche = Pokemon.create(name: "Salamèche", weigth: 8, height: 1, price: 20, user: user1)

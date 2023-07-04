@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   # get 'me/add', to: 'users#edit', as: :user_edit
   # patch 'me/add', to: 'users#update', as: :user_update
   # get 'me/transactions', to: 'users#transactions', as: :user_transactions
-  resources :users, only: [:show]
   devise_for :users
+  resources :users, only: [:show]
 end

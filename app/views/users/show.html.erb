@@ -1,6 +1,8 @@
 <% if @user == current_user %>
-    <%= @user.email %>
+    <%= @user.email %><br/>
+    <%= link_to "Modifier mes infos", edit_user_registration_path %><br/>
 <% end %>
+<%= @user.name %>
 
 <div>
 <% @user.pokemons.each do |pokemon| %>
