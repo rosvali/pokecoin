@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   # patch 'me/add', to: 'users#update', as: :user_update
   # get 'me/transactions', to: 'users#transactions', as: :user_transactions
   devise_for :users
-  resources :users, only: [:show]
+  resources :users, only: [:show, :update]
 end
