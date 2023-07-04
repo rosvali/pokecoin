@@ -1,0 +1,11 @@
+<% if @user == current_user %>
+    <%= @user.email %>
+<% end %>
+
+<div>
+<% @user.pokemons.each do |pokemon| %>
+    <li>
+    <%= link_to pokemon.name, pokemon_path(pokemon.id) %>
+    </li>
+<% end %>
+</div>

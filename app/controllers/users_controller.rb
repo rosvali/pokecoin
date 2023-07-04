@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!
     
-    # def show
-    #     render json: current_user, status: 200
-    # end
+    def show
+        @user = user_finder
+    end
 
     # def edit
     #     render json: { wallet: current_user.balance}, status: 200
@@ -18,4 +18,9 @@ class UsersController < ApplicationController
     # def transactions
     #     render json: current_user.transactions, status: 200
     # end
+    private
+
+    def user_finder
+        User.find(params[:id])
+    end
 end
