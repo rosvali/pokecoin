@@ -2,8 +2,7 @@ class PokemonsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    pokemons = Pokemon.all
-    render json: pokemons, status: 200
+    @pokemons = Pokemon.all
   end
 
   def show
