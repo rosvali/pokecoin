@@ -1,8 +1,8 @@
 <% if @user == current_user %>
     <%= @user.email %><br/>
     <%= link_to "Modifier mes infos", edit_user_registration_path %><br/>
-    <p>Thune : <%= @user.balance %></p>
-    <%= button_to "Acheter de la thune", user_path(@user.id), method: "put", remote: true %>
+    <p>PokeDollars : <%= @user.balance %></p>
+    <%= button_to "Acheter des PokeDollars", user_path(@user.id), method: "put", remote: true %>
 <% end %>
 <%= @user.name %>
 
