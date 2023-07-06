@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :validatable
   has_many :pokemons
   has_many :transactions
+  
+  validates :name, presence: true
 end
