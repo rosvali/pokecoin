@@ -32,11 +32,11 @@ class PokemonsController < ApplicationController
       sell(vendor, @pokemon)
       redirect_to user_path(current_user.id), notice: "Vente conclue !"
     else
-      flash.alert = "Pas assez de thunasse t'es trop pauvre cheh"
+      flash.alert = "Pas assez de PokeDollars"
       render 'checkout'
     end
   end
-  
+
   private
   
   def pokemon_finder
