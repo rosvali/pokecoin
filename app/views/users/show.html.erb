@@ -13,3 +13,11 @@
     </li>
 <% end %>
 </div>
+
+<div>
+<% @transactions.each_with_index do |transaction, index| %>
+    <li>
+        <p>Transaction <%=index + 1%> : <%= transaction.motif %> de <%= link_to transaction.pokemon.name, pokemon_path(transaction.pokemon.id)%></p>
+    </li>
+<% end %>
+</div>

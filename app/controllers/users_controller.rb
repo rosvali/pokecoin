@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     
     def show
         @user = user_finder
+        @transactions = @user.transactions
     end
 
     def update

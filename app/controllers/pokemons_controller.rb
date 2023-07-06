@@ -30,7 +30,7 @@ class PokemonsController < ApplicationController
       balance = current_user.balance - price
       current_user.update(balance: balance)
       sell(vendor, @pokemon)
-      redirect_to user_path(current_user.id), notice: "Vente conclue !"
+      redirect_to user_path(current_user.id), notice: "Transaction réussie !"
     else
       flash.alert = "Pas assez de PokeDollars"
       render 'checkout'

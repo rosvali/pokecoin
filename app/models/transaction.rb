@@ -6,4 +6,8 @@ class Transaction < ApplicationRecord
     buy: 0,
     sell: 1,
   }
+
+  def motif
+    self.action == "buy" ? "Achat" : "Vente"
+  end
 end
