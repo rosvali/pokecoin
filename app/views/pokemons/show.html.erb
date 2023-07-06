@@ -3,4 +3,13 @@
 <p>Poids: <%= @pokemon.weigth %></p>
 <p>Taille:<%= @pokemon.height %></p>
 <p>Prix: <%= @pokemon.price %></p>
-<%= link_to "Voir le proprietaire", user_path(@pokemon.user.id) %>
+<% if @pokemon.user != current_user %>
+    <%= link_to "Voir le proprietaire", user_path(@pokemon.user.id) %>
+    <% if @pokemon.tradable %>
+        <%= link_to "Acheter le pokémon", pokemon_checkout_path(@pokemon.id) %>
+    <% end %>
+<% elsif !@pokemon.tradable %>
+    <%= button_to "Mettre en vente le pokémon", pokemon_path(@pokemon.id), method: "put", remote: true %>
+    <% else %>
+    <%= button_to "Annuler la vente", pokemon_path(@pokemon.id), method: "put", remote: true %>
+<% end %>

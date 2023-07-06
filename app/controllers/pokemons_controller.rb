@@ -10,29 +10,42 @@ class PokemonsController < ApplicationController
     @user = @pokemon.user
   end
 
-  # def checkout
-  #   pokemon = pokemon_finder
-  #   user = pokemon.user
-  #   price = pokemon.price
-  #   balance = current_user.balance
-  #   render json: { pokemon: pokemon, vendeur: user, prix: price, balance: balance }, status: 200
-  # end
+  def update
+    pokemon = pokemon_finder
+    trade = pokemon.tradable ? false : true
+    pokemon.update(tradable: trade)
+  end
 
-  # def buy
-  #   pokemon = pokemon_finder
-  #   vendeur = pokemon_finder.user
-  #   if current_user.balance >= pokemon.price && current_user != vendeur
-  #     Transaction.create(pokemon: pokemon, user: current_user, action: 0)
-  #     Transaction.create(pokemon: pokemon, user: vendeur, action: 1)
-  #     render json: pokemon, status: 200
-  #   else
-  #     render json: {message: "no"}, status: 500
-  #   end
-  # end
+  def checkout
+    @pokemon = pokemon_finder
+  end
 
+  def buy
+    @pokemon = pokemon_finder
+    vendor = pokemon_finder.user
+    price = @pokemon.price
+    if current_user.balance >= @pokemon.price && current_user != vendor
+      Transaction.create(pokemon: @pokemon, user: current_user, action: 0)
+      @pokemon.update(user: current_user, tradable: false)
+      balance = current_user.balance - price
+      current_user.update(balance: balance)
+      sell(vendor, @pokemon)
+      redirect_to user_path(current_user.id), notice: "Vente conclue !"
+    else
+      flash.alert = "Pas assez de thunasse t'es trop pauvre cheh"
+      render 'checkout'
+    end
+  end
+  
   private
-
+  
   def pokemon_finder
     Pokemon.find(params[:id])
+  end
+  
+  def sell(vendor, pokemon)
+    Transaction.create(pokemon: pokemon, user: vendor, action: 1)
+    balance = vendor.balance + pokemon.price
+    vendor.update(balance: balance)
   end
 end

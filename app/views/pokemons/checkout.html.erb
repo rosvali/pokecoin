@@ -1,0 +1,8 @@
+<div>
+    <%= @pokemon.name %>
+    <%= image_tag @pokemon.image%>
+    <p>Le vendeur: <%= link_to @pokemon.user.name, user_path(@pokemon.user.id) %></p>
+    <p>Prix du pokémon : <%= @pokemon.price %> PokeDollars</p>
+    <p>Tu as <%= current_user.balance %> PokeDollars</p>
+    <%= button_to "Confirmer l'achat du pokémon", pokemon_buy_path(@pokemon.id), method: "post" %>
+</div>
