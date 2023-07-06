@@ -1,30 +1,32 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require 'json'
+require 'open-uri'
 
 Transaction.destroy_all
 User.destroy_all
 Pokemon.destroy_all
 
-user1 = User.create(name: "Toto", email: "toto@mail.com", password: "123456", balance: 100)
-user2 = User.create(name: "Rosa", email: "rosa@mail.com", password: "123456", balance: 30)
+user1 = User.create(name: "Banque pokémon", email: "banque@mail.com", password: "123456")
+user2 = User.create(name: "Toto", email: "toto@mail.com", password: "123456", balance: 50)
 
-bulbizarre = Pokemon.create(name: "Bulbizarre", weigth: 7, height: 1, price: 10, user: user1)
-salameche = Pokemon.create(name: "Salamèche", weigth: 8, height: 1, price: 20, user: user1)
-carapuce = Pokemon.create(name: "Carapuce", weigth: 9, height: 1, price: 30, user: user1)
-chenipan = Pokemon.create(name: "Chenipan", weigth: 3, height: 0, price: 40, user: user2)
-rattata = Pokemon.create(name: "Rattata", weigth: 3, height: 0, price: 50, user: user2)
-piafabec = Pokemon.create(name: "Piafabec", weigth: 2, height: 0, price: 60, user: user2)
-pikachu = Pokemon.create(name: "Pikachu", weigth: 6, height: 0, price: 70, user: user2)
+# Chargement du fichier JSON contenant les données des pokémons
+file = File.read(Rails.root.join('db', 'pokemons.json'))
+pokemons_data = JSON.parse(file)
 
-bulbizarre.image.attach(io: File.open(File.join(Rails.root,'app/assets/images/bulbizarre.png')),filename: 'bulbizarre.png')
-salameche.image.attach(io: File.open(File.join(Rails.root,'app/assets/images/salameche.png')),filename: 'salameche.png')
-carapuce.image.attach(io: File.open(File.join(Rails.root,'app/assets/images/carapuce.png')),filename: 'carapuce.png')
-chenipan.image.attach(io: File.open(File.join(Rails.root,'app/assets/images/chenipan.png')),filename: 'chenipan.png')
-rattata.image.attach(io: File.open(File.join(Rails.root,'app/assets/images/rattata.png')),filename: 'rattata.png')
-piafabec.image.attach(io: File.open(File.join(Rails.root,'app/assets/images/piafabec.png')),filename: 'piafabec.png')
-pikachu.image.attach(io: File.open(File.join(Rails.root,'app/assets/images/pikatchu.png')),filename: 'pikatchu.png')
+# Boucle pour créer les enregistrements des pokémons
+pokemons_data.each do |pokemon_data|
+  pokemon = Pokemon.new(
+    name: pokemon_data['name'],
+    height: pokemon_data['height'],
+    weight: pokemon_data['weight'],
+    user: user1,
+    price: rand(10..1000),
+    tradable: true
+  )
+  image_url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/#{pokemon_data['id']}.png"
+  downloaded_image = URI.open(image_url)
+  pokemon.image.attach(io: downloaded_image, filename: "#{pokemon.name}.png")
+  pokemon.save!
+  sleep(1)
+end
+
+puts "Les pokémons ont été créés dans la base de données avec les images attachées !"
