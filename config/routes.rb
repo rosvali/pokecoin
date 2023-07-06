@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   # get 'me/add', to: 'users#edit', as: :user_edit
   # patch 'me/add', to: 'users#update', as: :user_update
   # get 'me/transactions', to: 'users#transactions', as: :user_transactions
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    passwords: 'users/passwords'
+  }
   resources :users, only: [:show, :update]
 end
