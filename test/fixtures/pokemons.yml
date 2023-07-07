@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  weight: 1
-  height: 1
-  price: 1
+pokemon1:
+  name: Carapuce
+  weight: 10
+  height: 4
+  price: 30
 
-two:
-  name: MyString
-  weight: 1
-  height: 1
-  price: 1
+pokemon2:
+  name: Bulbizarre
+  weight: 30
+  height: 5
+  price: 20
