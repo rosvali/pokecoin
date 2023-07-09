@@ -7,6 +7,7 @@ class PokemonsController < ApplicationController
 
   def show
     @pokemon = pokemon_finder
+    @pokemon_image = @pokemon.image if @pokemon.image.attached?
     @user = @pokemon.user
   end
 

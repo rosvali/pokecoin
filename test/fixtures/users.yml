@@ -5,11 +5,13 @@
 # below each fixture, per the syntax in the comments below
 #
 user1:
+  id: 1
   name: Toto
   email: toto@mail.com
   balance: 100
 
 user2:
+  id: 2
   name: Tutu
   email: tutu@mail.com
   balance: 0
