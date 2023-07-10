@@ -15,9 +15,6 @@ class UsersController < ApplicationController
 		end
     end
 
-    # def transactions
-    #     render json: current_user.transactions, status: 200
-    # end
     private
 
     def user_finder
