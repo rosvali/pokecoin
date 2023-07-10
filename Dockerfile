@@ -1,4 +1,4 @@
-FROM ruby:3.0.6-buster
+FROM ruby:3.0.5
 
 RUN bundle config --global frozen 1
 
