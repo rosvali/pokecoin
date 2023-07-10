@@ -42,4 +42,17 @@ class PokemonsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_not_equal initial_tradable, @pokemon.tradable
   end
+
+  test "should get checkout" do
+    sign_in users(:user1)
+    get pokemon_checkout_url(@pokemon.id)
+    
+    assert_response :success
+  end
+
+  test "should'nt get checkout" do
+    get pokemon_checkout_url(@pokemon.id)
+    
+    assert_response :redirect
+  end
 end

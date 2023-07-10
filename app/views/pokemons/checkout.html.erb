@@ -1,6 +1,8 @@
 <div>
     <%= @pokemon.name %>
-    <%= image_tag @pokemon.image%>
+    <% if @pokemon_image %>
+        <%= image_tag @pokemon.image %>
+    <% end %>
     <p>Le vendeur: <%= link_to @pokemon.user.name, user_path(@pokemon.user.id) %></p>
     <p>Prix du pokémon : <%= @pokemon.price %> PokeDollars</p>
     <p>Tu as <%= current_user.balance %> PokeDollars</p>

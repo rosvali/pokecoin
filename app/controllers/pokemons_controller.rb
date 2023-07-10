@@ -7,7 +7,7 @@ class PokemonsController < ApplicationController
 
   def show
     @pokemon = pokemon_finder
-    @pokemon_image = @pokemon.image if @pokemon.image.attached?
+    @pokemon_image = pokemon_image
     @user = @pokemon.user
   end
 
@@ -19,6 +19,7 @@ class PokemonsController < ApplicationController
 
   def checkout
     @pokemon = pokemon_finder
+    @pokemon_image = pokemon_image
   end
 
   def buy
@@ -48,5 +49,9 @@ class PokemonsController < ApplicationController
     Transaction.create(pokemon: pokemon, user: vendor, action: 1)
     balance = vendor.balance + pokemon.price
     vendor.update(balance: balance)
+  end
+
+  def pokemon_image
+    @pokemon.image if @pokemon.image.attached?
   end
 end
