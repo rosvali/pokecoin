@@ -1,7 +1,7 @@
 <% if @pokemon_image %>
     <%= image_tag @pokemon.image %>
 <% end %>
-<%= @pokemon.name %>
+<%= @pokemon.name.capitalize %>
 <p>Poids: <%= @pokemon.weight %></p>
 <p>Taille:<%= @pokemon.height %></p>
 <p>Prix: <%= @pokemon.price %></p>

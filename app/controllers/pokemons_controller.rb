@@ -35,7 +35,7 @@ class PokemonsController < ApplicationController
       redirect_to user_path(current_user.id), notice: "Transaction réussie !"
     else
       flash.alert = "Pas assez de PokeDollars"
-      render 'checkout'
+      render 'checkout', status: 500
     end
   end
 
